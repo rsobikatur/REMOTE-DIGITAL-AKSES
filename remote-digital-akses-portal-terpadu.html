@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14213d">
+<meta name="description" content="Portal terpadu Remote Digital Akses: kelas kerja remote dan Akademi Bisnis Digital.">
+<title>Remote Digital Akses | Portal Terpadu</title>
+<style>
+:root{--navy:#14213d;--blue:#2457d6;--ink:#172033;--muted:#647087;--paper:#f4f7fc;--white:#fff;--gold:#f5b942;--line:#e4e9f1}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}body{display:flex;flex-direction:column;overflow:hidden}
+.topbar{flex:0 0 auto;min-height:74px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:white;background:linear-gradient(115deg,#101b35,#1d3c83 72%,#2457d6);box-shadow:0 5px 20px rgba(20,33,61,.18);z-index:2}
+.brand{min-width:0}.brand strong{display:block;font-size:15px;letter-spacing:.08em;font-weight:900}.brand span{display:block;margin-top:4px;color:#d7e3ff;font-size:10px;letter-spacing:.16em;font-weight:700}
+.nav{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}.nav button,.nav a{border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.10);color:white;padding:10px 15px;text-decoration:none;font:700 13px inherit;cursor:pointer;transition:.18s ease}.nav button:hover,.nav a:hover{background:rgba(255,255,255,.2)}.nav button.active{background:var(--gold);border-color:var(--gold);color:#182238}
+.content{position:relative;flex:1 1 auto;min-height:0}iframe{display:block;width:100%;height:100%;border:0;background:white}.loading{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:var(--paper);color:var(--muted);font-size:14px;z-index:-1}
+@media(max-width:640px){.topbar{align-items:flex-start;flex-direction:column;gap:10px;padding:12px 13px}.brand strong{font-size:13px}.nav{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px}.nav button,.nav a{text-align:center;padding:10px 7px;font-size:12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><strong>◈ REMOTE DIGITAL AKSES</strong><span>PORTAL TERPADU • BELAJAR • BERKARYA • BERKEMBANG</span></div>
+  <nav class="nav" aria-label="Navigasi utama">
+    <button type="button" id="courseBtn" class="active" aria-pressed="true" onclick="showPage('index.html','courseBtn')">Kelas Kerja Remote</button>
+    <button type="button" id="businessBtn" aria-pressed="false" onclick="showPage('bisnis.html','businessBtn')">Akademi Bisnis</button>
+    <a href="index.html" target="_blank" rel="noopener">Buka Kelas ↗</a>
+    <a href="bisnis.html" target="_blank" rel="noopener">Buka Akademi ↗</a>
+  </nav>
+</header>
+<main class="content">
+  <div class="loading" id="loading">Memuat halaman…</div>
+  <iframe id="siteFrame" src="index.html" title="Konten Remote Digital Akses" allow="clipboard-read; clipboard-write" allowfullscreen></iframe>
+</main>
+<script>
+function showPage(file,activeId){
+ const frame=document.getElementById('siteFrame');
+ ['courseBtn','businessBtn'].forEach(id=>{const btn=document.getElementById(id);const active=id===activeId;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false')});
+ document.getElementById('loading').style.display='flex';
+ frame.onload=()=>{document.getElementById('loading').style.display='none'};
+ frame.src=file;
+}
+document.getElementById('siteFrame').addEventListener('load',()=>{document.getElementById('loading').style.display='none'});
+</script>
+</body>
+</html>
