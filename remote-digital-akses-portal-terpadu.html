@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#14213d">
-<meta name="description" content="Portal terpadu Remote Digital Akses: kelas kerja remote dan Akademi Bisnis Digital.">
-<title>Remote Digital Akses | Portal Terpadu</title>
+<meta name="description" content="Portal terpadu Remote Digital Smart: kelas kerja remote dan Akademi Bisnis Digital.">
+<title>Remote Digital Smart | Portal Terpadu</title>
 <style>
 :root{--navy:#14213d;--blue:#2457d6;--ink:#172033;--muted:#647087;--paper:#f4f7fc;--white:#fff;--gold:#f5b942;--line:#e4e9f1}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}body{display:flex;flex-direction:column;overflow:hidden}
@@ -18,24 +18,22 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><strong>◈ REMOTE DIGITAL AKSES</strong><span>PORTAL TERPADU • BELAJAR • BERKARYA • BERKEMBANG</span></div>
+  <div class="brand"><strong>◈ REMOTE DIGITAL SMART</strong><span>PORTAL TERPADU • BELAJAR • BERKARYA • BERKEMBANG</span></div>
   <nav class="nav" aria-label="Navigasi utama">
     <button type="button" id="courseBtn" class="active" aria-pressed="true" onclick="showPage('index.html','courseBtn')">Kelas Kerja Remote</button>
     <button type="button" id="businessBtn" aria-pressed="false" onclick="showPage('bisnis.html','businessBtn')">Akademi Bisnis</button>
-    <button type="button" id="creatorBtn" aria-pressed="false" onclick="showPage('index.html#creator-academy','creatorBtn')">Creator Academy</button>
     <a href="index.html" target="_blank" rel="noopener">Buka Kelas ↗</a>
-    <a href="bisnis.html" target="_blank" rel="noopener">Katalog Bisnis ↗</a>
-    <a href="index.html#creator-academy" target="_blank" rel="noopener">Belajar Creator ↗</a>
+    <a href="bisnis.html" target="_blank" rel="noopener">Buka Akademi ↗</a>
   </nav>
 </header>
 <main class="content">
   <div class="loading" id="loading">Memuat halaman…</div>
-  <iframe id="siteFrame" src="index.html" title="Konten Remote Digital Akses" allow="clipboard-read; clipboard-write" allowfullscreen></iframe>
+  <iframe id="siteFrame" src="index.html" title="Konten Remote Digital Smart" allow="clipboard-read; clipboard-write" allowfullscreen></iframe>
 </main>
 <script>
 function showPage(file,activeId){
  const frame=document.getElementById('siteFrame');
- ['courseBtn','businessBtn','creatorBtn'].forEach(id=>{const btn=document.getElementById(id);const active=id===activeId;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false')});
+ ['courseBtn','businessBtn'].forEach(id=>{const btn=document.getElementById(id);const active=id===activeId;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false')});
  document.getElementById('loading').style.display='flex';
  frame.onload=()=>{document.getElementById('loading').style.display='none'};
  frame.src=file;
